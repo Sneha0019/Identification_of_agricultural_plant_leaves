@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
+
+}
+
+.main-header{
+height: 90px;
+width: 1462px;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+line-height: 90px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.border a{
+    border: 1.5px solid transparent;
+}
+
+.border:hover a{
+    border-bottom: 1.5px solid green;
+    color: green;
+}
+a{
+    font-size: 15px;
+}
+
+.website-name{
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    
+}
+
+.website-name a{
+    padding-top: 20px;
+}
+
+
+#web-name{
+    font-size: 20px;
+    align-self: center;
+}
+
+
+/**content**/
+.hero-section{
+    background-image: url("https://assets.website-files.com/63708df071bc73798fae96ee/6378b145707d74104f13ad8a_image-here%201.jpg");
+    background-size: cover;
+    height: 550px;
+    display: flex;
+    justify-items: right;
+    justify-content: left;
+    align-items: center;
+    
+}
+
+.hero-message{
+    color: #296253;
+    font-size: 80px;
+    font-weight: bold;
+    padding-left: 100px;
+}
+.hero-message1{
+    margin-top: 30px;
+    color: black;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+/**content**/
+.main-content{
+    height: 500px;
+    width: 1000px;
+    margin: 50px 0px 16px;
+    padding: 40px 48px;
+    box-sizing: inherit;
+    background-color: white;
+
+}
+h2{
+    text-align: center;
+    padding-left: 15%;
+}
+
+p{
+    margin: 10px 0px 80px;
+    display: block;
+    justify-content: center;
+    padding-left: 20%;
+
+}
+
+
+
+/**footer**/
+.foot-panel{
+    margin-top: 70px;
+    background-color: #f6f7fb;
+    color: black;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.foot-panel p{
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding: 0px;
+}
+
+ul a{
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: black;
+    
+}
+
+
+
+
+
+
+
+
+
+
+

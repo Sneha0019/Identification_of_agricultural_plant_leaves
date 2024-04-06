@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
+
+}
+
+.main-header{
+height: 90px;
+width: 1462px;
+background-color: white;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+line-height: 90px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.border a{
+    border: 1.5px solid transparent;
+}
+
+.border:hover a{
+    border-bottom: 1.5px solid green;
+    color: green;
+}
+a{
+    font-size: 15px;
+}
+
+.website-name{
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    
+}
+
+.website-name a{
+    padding-top: 20px;
+}
+
+
+#web-name{
+    font-size: 20px;
+    align-self: center;
+}
+
+
+/**content**/
+.hero-section{
+    background-image: url("https://assets.website-files.com/63708df071bc73798fae96ee/6378b145707d74104f13ad8a_image-here%201.jpg");
+    background-size: cover;
+    height: 550px;
+    display: flex;
+    justify-items: right;
+    justify-content: left;
+    align-items: center;
+}
+
+.hero-message{
+    color: #296253;
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 100px;
+
+}
+
+/**explore-section**/
+#explore-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #ffffff;  
+}
+
+.box{
+    border: 2px solid transparent;
+    width: 23%;
+    height: 450px;
+    width: 370px;
+    background-color: white;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+
+.box-image{
+    height: 273px;
+    width: 370px;
+    padding: 20px 0px 15px;  
+    background-size: cover;
+    margin-bottom: 1rem;
+}
+
+.box-description{
+    margin-top: 1rem;
+}
+
+.box-content a{
+    color: black;
+    border: 1.5px solid transparent;
+    font-weight: bold;
+}
+
+.border1:hover {
+    border-bottom: 1.5px solid green;
+    color: green;
+}
+/**footer**/
+.foot-panel{
+    margin-top: 70px;
+    background-color: #f6f7fb;
+    color: black;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.foot-panel p{
+    font-weight: bold;
+}
+
+ul{
+    margin-top: 20px;
+}
+
+ul a{
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    color: black;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identify</title>
+    <link rel="stylesheet" href="identification.css">
+</head>
+<body>
+    <header>
+        <div class="main-header">
+            <div class="website-name">
+            <a id="web-logo">
+                <img src="symbol.png" height="40" width="40" >
+            </a>
+            <div id="web-name">
+                Pl@nt.net
+            </div>
+            </div>
+
+            <div class="home-section border">
+                <a href="index.html">HOME</a>
+            </div>
+
+            <div class="explore-section-content border">
+              <a href="#explore-section">EXPLORE</a>
+            </div>
+
+            <div class="blog-section border">
+                <a href="blog.html">BLOG</a>
+            </div>
+    
+
+            <div class="identify-section border">
+                <a href="identification.html">IDENTIFY</a>
+        </div>
+
+
+            <div class="contact-section border">
+                <a href="contactUs.html">CONTACT US</a>
+            </div>
+
+          
+            
+        </div>
+    </header>
+
+    <div class="centered-container">
+        <div class="image-upload-container">
+            <div class="instructions">
+                <p>Each observation can include up to 4 pictures of the same plant.</p>
+                <p>At least one photo of leaf, flower, fruit, or bark is required for identification to work.</p>
+            </div>
+            <div class="main-upload-box" id="main-upload-box">
+                <div id="main-image-upload" class="custom-button green small">Drop Image Here</div>
+                <input type="file" id="main-upload-input" accept="image/*">
+            </div>
+            <div class="image-preview">
+                <div class="empty-preview"></div>
+                <div class="empty-preview"></div>
+                <div class="empty-preview"></div>
+                <div class="empty-preview"></div>
+            </div>
+
+            <div id="result-section">
+                <p>Result-</p>
+                <p id="predicted-disease-name"></p>
+                <p id="predicted-disease-description"></p>
+                <p id="predicted-disease-steps"></p>
+                <img id="predicted-disease-image" src="" alt="Predicted Disease Image">
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+       <div class="footer-section">
+            <div class="foot-panel">
+                <ul>
+                    <P>About Us</P>
+                    <a>Welcome to Pl@nt.World!.Our goal is to help you explore the</a>  
+                    <a>world of natural remedies and connect with the power of</a>  
+                    <a>Mother Nature's healing herbs. Whether you're a seasoned</a>
+                    <a>herbalist or just starting your journey into herbal medicine, we</a>
+                    <a>have resources and knowledge to share. Join us in our mission</a>
+                    <a>to promote holistic well-being and a deeper connection to the</a>
+                    <a>natural world</a>
+                </ul>
+    
+                <ul>
+                    <P>Founders</P>
+                    <a>Abhi Mehta</a>
+                    <a>Achal Chinavalkar</a>
+                    <a>Akshita Bhasin</a>
+                    <a>Ayush khirraiyya</a>
+                    <a>Sneha Menat</a>
+                    <a>Tejas Shinde</a>
+                </ul>
+    
+                <ul>
+                    <P>Copyright</P>
+                    <a>© 2023 Pl@nt.World. All rights reserved.</a>        
+                </ul>
+
+             </div>
+
+         </div>
+
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to handle file selection
+            function handleFileSelect(evt) {
+                var file = evt.target.files[0];
+
+                // Only proceed if selected file is an image
+                if (file && file.type.match('image.*')) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Display selected image in one of the empty previews
+                        var emptyPreview = $(".empty-preview").filter(function() {
+                            return $(this).css("background-color") === "rgb(255, 255, 255)";
+                        }).first();
+                        emptyPreview.css("background-image", "url(" + e.target.result + ")");
+                        emptyPreview.css("background-size", "cover");
+                        emptyPreview.css("background-repeat", "no-repeat");
+                        emptyPreview.css("background-position", "center");
+                        emptyPreview.text(""); // Remove any text
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            // Trigger file selection when main upload box is clicked
+            $("#main-image-upload").click(function() {
+                $("#main-upload-input").trigger('click');
+            });
+
+            // Handle file selection
+            $("#main-upload-input").change(function(evt) {
+                handleFileSelect(evt);
+            });
+
+            // AJAX POST request when image is selected
+            $("#main-upload-input").change(function() {
+                var fileInput = $("#main-upload-input")[0].files[0];
+                var formData = new FormData();
+                formData.append('file', fileInput);
+
+                $.ajax({
+                    url: 'http://127.0.0.1:5000/',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        // Update the HTML elements with the prediction result
+                        $("#predicted-disease-name").text("Predicted Disease: " + response.predicted_disease_name);
+                        $("#predicted-disease-description").text("Description: " + response.predicted_disease_description);
+                        $("#predicted-disease-steps").text("Steps: " + response.predicted_disease_steps);
+                        $("#predicted-disease-image").attr("src", response.predicted_disease_image_url);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
